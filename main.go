@@ -11,6 +11,8 @@ import (
     "os"
     "strconv"
     "strings"
+
+    "github.com/joho/godotenv" // For loading .env file
 )
 
 // GrokClient handles interactions with the Grok API
@@ -22,6 +24,13 @@ type GrokClient struct {
 
 // NewGrokClient initializes a new Grok API client
 func NewGrokClient() *GrokClient {
+    // Load .env file if it exists
+    err := godotenv.Load()
+    if err != nil {
+        log.Printf("Error loading .env file: %v", err)
+        // Continue; we’ll fall back to os.Getenv
+    }
+
     apiKey := os.Getenv("GROK_API_KEY")
     if apiKey == "" {
         log.Fatal("GROK_API_KEY environment variable is not set")

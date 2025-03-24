@@ -1,0 +1,19 @@
+# Compiled binary
+grok-app
+
+# Log file
+grok_app.log
+
+# Environment file with sensitive data
+.env
+
+# Go module cache (optional, if you’re vendoring)
+vendor/
+
+# Temporary files
+*.tmp
+*.swp
+
+# Editor-specific files
+.vscode/
+.idea/
